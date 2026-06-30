@@ -1,0 +1,54 @@
+openapi: 3.1.0
+
+info:
+  title: Expert TaxTech API
+  version: "1.0.0"
+  description: API para consulta de candidatos da Expert TaxTech
+
+servers:
+  - url: https://script.google.com/macros/s/AKfycbybciDb8EvG3VY_s0GmE8EZekHe_kL2BahUz28hGtDwtfBimz-Zl14l5qG4_z5Vvq3F/exec
+
+paths:
+  /:
+    get:
+      operationId: listarCandidatos
+      summary: Lista candidatos
+      parameters:
+        - name: nome
+          in: query
+          schema:
+            type: string
+
+        - name: expertise
+          in: query
+          schema:
+            type: string
+
+        - name: tipo
+          in: query
+          schema:
+            type: string
+
+        - name: nivel
+          in: query
+          schema:
+            type: string
+
+        - name: localidade
+          in: query
+          schema:
+            type: string
+
+        - name: idioma
+          in: query
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
