@@ -6,7 +6,7 @@ info:
   description: API para consulta de candidatos
 
 servers:
-  - url: https://script.google.com/macros/s/AKfycbybciDb8EvG3VY_s0GmE8EZekHe_kL2BahUz28hGtDwtfBimz-Zl14l5qG4_z5Vvq3F/exec
+  - url: https://eodprmm04unzccs.m.pipedream.net
 
 paths:
   /:
