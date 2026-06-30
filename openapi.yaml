@@ -3,7 +3,7 @@ openapi: 3.1.0
 info:
   title: Expert TaxTech API
   version: "1.0.0"
-  description: API para consulta de candidatos da Expert TaxTech
+  description: API para consulta de candidatos
 
 servers:
   - url: https://script.google.com/macros/s/AKfycbybciDb8EvG3VY_s0GmE8EZekHe_kL2BahUz28hGtDwtfBimz-Zl14l5qG4_z5Vvq3F/exec
@@ -13,42 +13,96 @@ paths:
     get:
       operationId: listarCandidatos
       summary: Lista candidatos
+      description: Retorna a lista de candidatos com filtros opcionais.
+
       parameters:
         - name: nome
           in: query
+          required: false
           schema:
             type: string
 
         - name: expertise
           in: query
+          required: false
           schema:
             type: string
 
         - name: tipo
           in: query
+          required: false
           schema:
             type: string
 
         - name: nivel
           in: query
+          required: false
           schema:
             type: string
 
         - name: localidade
           in: query
+          required: false
           schema:
             type: string
 
         - name: idioma
           in: query
+          required: false
           schema:
             type: string
 
       responses:
         "200":
-          description: OK
+          description: Lista de candidatos
+
           content:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+
+                properties:
+
+                  success:
+                    type: boolean
+
+                  total:
+                    type: integer
+
+                  candidatos:
+                    type: array
+
+                    items:
+                      type: object
+
+                      properties:
+
+                        ID:
+                          type: integer
+
+                        Nome:
+                          type: string
+
+                        Tipo:
+                          type: string
+
+                        Expertise:
+                          type: string
+
+                        Nivel:
+                          type: string
+
+                        Localidade:
+                          type: string
+
+                        Idioma:
+                          type: string
+
+                        Disponibilidade:
+                          type: string
+
+                      additionalProperties: true
+
+                required:
+                  - success
+                  - candidatos
