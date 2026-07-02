@@ -1,0 +1,65 @@
+openapi: 3.1.0
+
+info:
+  title: Expert TaxTech Cadastro API
+  version: "1.0.0"
+
+servers:
+  - url: https://eowclfqp2el79qo.m.pipedream.net
+
+paths:
+  /:
+    post:
+      operationId: criarCandidato
+      summary: Cria um novo candidato
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+            schema:
+              type: object
+
+              properties:
+
+                nome:
+                  type: string
+
+                expertise:
+                  type: string
+
+                nivel:
+                  type: string
+
+                contato:
+                  type: string
+
+                idioma:
+                  type: string
+
+                localidade:
+                  type: string
+
+              required:
+                - nome
+
+      responses:
+        "200":
+          description: Candidato criado
+
+          content:
+            application/json:
+              schema:
+                type: object
+
+                properties:
+
+                  success:
+                    type: boolean
+
+                  message:
+                    type: string
+
+                  id:
+                    type: integer
