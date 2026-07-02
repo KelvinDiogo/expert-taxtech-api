@@ -1,0 +1,84 @@
+openapi: 3.1.0
+
+info:
+  title: Atualizar Candidato
+  version: "1.0.0"
+  description: Atualiza os dados de um candidato na planilha Pipe de Candidatos.
+
+servers:
+  - url: https://eo33ybhlftf6fl.m.pipedream.net
+
+paths:
+  /:
+    post:
+      operationId: atualizarCandidato
+      summary: Atualiza um candidato na planilha.
+      description: Atualiza somente os campos enviados mantendo os demais dados do candidato.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID do candidato.
+
+                tipo:
+                  type: string
+                  description: Tipo do candidato (GPT, Ativo, Reprovado, Contratado, etc.).
+
+                nome:
+                  type: string
+
+                expertise:
+                  type: string
+
+                nivel:
+                  type: string
+
+                rateConsultor:
+                  type: string
+
+                rateExpert:
+                  type: string
+
+                percentual:
+                  type: string
+
+                disponibilidade:
+                  type: string
+
+                contato:
+                  type: string
+
+                idioma:
+                  type: string
+
+                localidade:
+                  type: string
+
+                hibrido:
+                  type: string
+
+                comentario:
+                  type: string
+
+              required:
+                - id
+
+      responses:
+        "200":
+          description: Candidato atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  id:
+                    type: integer
+                  message:
+                    type: string
